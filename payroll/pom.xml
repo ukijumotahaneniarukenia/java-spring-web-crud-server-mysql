@@ -48,10 +48,10 @@
 
 <!--		オンメモリ時の動作確認時はコメントアウトする-->
 <!--		//このライブラリを読み込むとデータベースありきでスプリング起動する-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>

@@ -1,15 +1,22 @@
 package payroll;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 class Employee {
 
-    private Long id;
+    private @Id @GeneratedValue Long id;
     private String name;
     private String role;
 
-    public Employee(long id, String name, String role) {
-        this.id = id;
+
+    Employee() {}
+
+    public Employee(String name, String role) {
+
         this.name = name;
         this.role = role;
     }

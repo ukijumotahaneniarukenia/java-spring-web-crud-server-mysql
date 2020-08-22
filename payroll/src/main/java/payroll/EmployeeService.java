@@ -1,29 +1,28 @@
 package payroll;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Spliterator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @Service
 public class EmployeeService {
 
-    private static List<Employee> list = new LinkedList(){{
-        add(new Employee(111L,"mariko","chef"));
-        add(new Employee(222L,"ぽるこ","豚"));
-        add(new Employee(333L,"まるこ","人"));
-        add(new Employee(444L,"うんこ","糞"));
-        add(new Employee(555L,"うんこ","kuso"));
-        add(new Employee(666L,"うんこ","KUSO"));
-        add(new Employee(777L,"うんこ","UNKO"));
-        add(new Employee(888L,"うんこ","unko"));
-    }};
+    @Autowired
+    private EmployeeRepository repository;
 
     public List<Employee> mock(String name){
 
-        return list.stream().filter(e->e.getName().equals(name)).collect(Collectors.toList());
+        Spliterator<Employee>  employeeSpliterator = repository.findAll().spliterator();
+
+        Stream<Employee> stream = StreamSupport.stream(employeeSpliterator,false);
+
+        return stream.filter(e->e.getName().equals(name)).collect(Collectors.toList());
 
     }
 

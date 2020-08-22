@@ -8,5 +8,9 @@
 <body>
     <p th:text="'search keyword:' + ${q} + '!'" />
     <p>search result</p>
+    <ul>
+        <li th:each="item : ${items}"
+            th:text="${item.id} + ${item.name} + ${item.role}"></li>
+    </ul>
 </body>
 </html>

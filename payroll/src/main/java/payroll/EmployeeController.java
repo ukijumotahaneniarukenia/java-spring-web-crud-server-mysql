@@ -1,5 +1,6 @@
 package payroll;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -39,7 +46,11 @@ class EmployeeController {
 
         ModelAndView modelAndView = new ModelAndView();
 
+        List<Employee> employeeList = employeeService.mock(q);
+
         model.addAttribute("q", q);
+        model.addAttribute("items", employeeList);
+
 
         //https://stackoverflow.com/questions/48963242/cannot-access-templates-running-spring-boot-with-jar
         modelAndView.setViewName("list.html");//NOTE: no slash

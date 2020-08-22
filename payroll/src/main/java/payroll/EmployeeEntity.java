@@ -5,17 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
-class Employee {
+@Entity(name = "employee")
+class EmployeeEntity {
 
     private @Id @GeneratedValue Long id;
     private String name;
     private String role;
 
+    EmployeeEntity() {}
 
-    Employee() {}
-
-    public Employee(String name, String role) {
+    public EmployeeEntity(String name, String role) {
 
         this.name = name;
         this.role = role;
@@ -50,11 +49,11 @@ class Employee {
 
         if (this == o)
             return true;
-        if (!(o instanceof Employee))
+        if (!(o instanceof EmployeeEntity))
             return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(this.id, employee.id) && Objects.equals(this.name, employee.name)
-                && Objects.equals(this.role, employee.role);
+        EmployeeEntity employeeEntity = (EmployeeEntity) o;
+        return Objects.equals(this.id, employeeEntity.id) && Objects.equals(this.name, employeeEntity.name)
+                && Objects.equals(this.role, employeeEntity.role);
     }
 
     @Override

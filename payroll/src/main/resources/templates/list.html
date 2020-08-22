@@ -8,9 +8,26 @@
 <body>
     <p th:text="'search keyword:' + ${q} + '!'" />
     <p>search result</p>
-    <ul>
-        <li th:each="item : ${items}"
-            th:text="${item.id} + ${item.name} + ${item.role}"></li>
-    </ul>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>role</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${itemList}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.role}"></td>
+        </tr>
+        </tbody>
+    </table>
+<!--    <ul>-->
+<!--        <li th:each="items : ${items}"-->
+<!--            th:text="${item.id} + ${item.name} + ${item.role}"></li>-->
+<!--    </ul>-->
+    <p>menu<a href="/menu">here</a></p>
 </body>
 </html>

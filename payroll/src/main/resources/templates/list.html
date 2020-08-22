@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="/css/wrapper.css" rel="stylesheet" type="text/css" />
     <title>Title</title>
 </head>
 <body>
-    <p>menu<a href="/menu">here</a></p>
+    <p th:text="'search keyword:' + ${q} + '!'" />
+    <p>search result</p>
 </body>
 </html>

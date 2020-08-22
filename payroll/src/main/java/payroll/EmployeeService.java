@@ -1,9 +1,9 @@
 package payroll;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Spliterator;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repository;
 
-    public List<Employee> mock(String name){
+    public List<Employee> search(String name){
 
         Spliterator<Employee>  employeeSpliterator = repository.findAll().spliterator();
 
@@ -26,4 +26,9 @@ public class EmployeeService {
 
     }
 
+    public List<Employee> create(Employee employee){
+        List<Employee> list = new LinkedList<>();
+        list.add(repository.save(employee));
+        return list;
+    }
 }

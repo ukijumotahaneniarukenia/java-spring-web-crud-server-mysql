@@ -1,4 +1,4 @@
-# java-spring-web-server-mysql
+# java-spring-web-crud-server-mysql
 
 
 dockerホスト側のブラウザからアクセス
